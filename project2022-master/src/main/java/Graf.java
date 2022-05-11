@@ -18,7 +18,6 @@ public class Graf {
     public void run(int code,byte[] data){
         switch (code){
             case 1 :
-
                 break;
             case 2 :
                 break;
@@ -53,10 +52,8 @@ public class Graf {
                 sum+= formedList.get(i).getBkpr();
                 count++;
             }
-
-
-
-
+            byte[] bytes = Protocol.convertObjectToBytes(1,2,(Object) grafDTO);
+            dos.write(bytes);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -68,8 +65,6 @@ public class Graf {
     public void grafMonth(byte[] data){
         try {
             GrafRequestDTO grafDTO = (GrafRequestDTO) Protocol.convertBytesToObject(data);
-
-
 
         } catch (IOException e) {
             e.printStackTrace();
